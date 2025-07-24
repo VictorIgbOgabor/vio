@@ -42,7 +42,7 @@
                 <h1 class="section-heading gradient-text">Let's Connect</h1>
                 <p class="section-subheading">Ready to start a project or simply have a question? Reach out to us – we're always happy to chat!</p>
 
-                <div class="contact-content">
+                <div class="contact-content animate-on-scroll">
                     <div class="contact-info">
                         <h3>Connect with VIO</h3>
                         <p>We're here to help you bring your ideas to life. Feel free to use the contact details below or fill out the form.</p>
@@ -166,6 +166,10 @@
         </div>
     </footer>
 
+    <button id="backToTopBtn" class="back-to-top-btn" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
         // Smooth scrolling for anchor links (if any internal to this page)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -207,10 +211,76 @@
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // The client-side form submission simulation has been removed
-        // as Formspree will handle the actual submission and redirection.
-        // You can add a 'submit' event listener if you want to show a loading
-        // indicator *before* the redirect, but Formspree handles the outcome.
+        // --- NEW UX ENHANCEMENTS BELOW ---
+
+        // Hero Section Entrance Animation (for contact-section h1 and p)
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactSection = document.querySelector('.contact-section');
+            if (contactSection) {
+                const elementsToAnimate = contactSection.querySelectorAll('h1, p.section-subheading');
+                elementsToAnimate.forEach((el, index) => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(20px)';
+                    el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                    el.style.transitionDelay = `${0.2 + index * 0.2}s`;
+                });
+
+                setTimeout(() => {
+                    elementsToAnimate.forEach(el => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    });
+                }, 100);
+            }
+        });
+
+        // Scroll-triggered Animations
+        const observerOptions = {
+            root: null, // Use the viewport as the root
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of the item is visible
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        };
+
+        const scrollObserver = new IntersectionObserver(observerCallback, observerOptions);
+
+        // Apply to all elements with 'animate-on-scroll' class
+        document.querySelectorAll('.animate-on-scroll').forEach((element, index) => {
+            // Add a staggered delay for grid items (if any, though contact-content is flex)
+            const parentGrid = element.closest('.grid');
+            if (parentGrid) {
+                element.style.setProperty('--delay', `${index * 0.1}s`); // 0.1s delay per item
+            } else if (element.classList.contains('contact-content')) { // Specific delay for contact-content block
+                element.style.setProperty('--delay', '0.6s');
+            }
+            scrollObserver.observe(element);
+        });
+
+        // Back to Top Button functionality
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Show button after scrolling 300px
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scroll to top
+            });
+        });
     </script>
 </body>
 </html>
