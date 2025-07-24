@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIO | Design. Strategy. Clarity. - New Look</title>
+
+    <link rel="icon" type="image/png" href="vios-logo.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container flex justify-between items-center py-4">
+            <a href="index.html" class="logo flex items-center">
+                <img src="vios-logo.png" alt="VIO Logo">
+            </a>
+            <nav class="desktop-nav space-x-8">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="mobile-menu-button" aria-label="Toggle mobile menu">&#9776;</button>
+        </div>
+        <nav id="mobile-nav" class="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="container">
+                <h1 class="gradient-text">Design. Strategy. Clarity.</h1>
+                <p>At VIO, we help you build, brand, and grow with precision. Smart, high-impact design and digital solutions for individuals, businesses, and startups.</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                    <a href="services.html" class="btn btn-secondary">Our Services</a>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="vio-logoss.png" alt="VIO brand mockup">
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="container">
+                <h2 class="text-center mb-10">The VIO Approach</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="feature-card">
+                        <div class="icon-wrapper"><i class="fas fa-lightbulb"></i></div>
+                        <h3>Creative but clear</h3>
+                        <p>We keep it smart, not cluttered. Every design element serves a purpose, ensuring clarity and impact.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-wrapper"><i class="fas fa-briefcase"></i></div>
+                        <h3>Professional but fresh</h3>
+                        <p>We blend established professionalism with a fresh, innovative perspective, bringing new energy to every project.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-wrapper"><i class="fas fa-chess"></i></div>
+                        <h3>Simple but strategic</h3>
+                        <p>Every move is purposeful. We design with your business goals at the forefront, ensuring effective outcomes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services-preview" class="services-section">
+            <div class="container">
+                <h2 class="text-center mb-10">Our Services</h2>
+                <p class="text-center mb-12 text-lg max-w-2xl mx-auto">Streamlined services at the intersection of creativity, strategy, and execution, designed to elevate your brand.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="service-card orange-border">
+                        <div class="content">
+                            <div class="icon-header">
+                                <div class="icon"><i class="fas fa-palette"></i></div>
+                                <h3>Branding & Design</h3>
+                            </div>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Logo design & Brand identity</li>
+                                <li><i class="fas fa-check"></i> Brand guidelines & collateral</li>
+                                <li><i class="fas fa-check"></i> Social media graphics</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="service-card blue-border">
+                        <div class="content">
+                            <div class="icon-header">
+                                <div class="icon"><i class="fas fa-globe"></i></div>
+                                <h3>Website & Shopify</h3>
+                            </div>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Custom business websites</li>
+                                <li><i class="fas fa-check"></i> E-commerce store development</li>
+                                <li><i class="fas fa-check"></i> Landing pages & Portfolios</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="service-card orange-border">
+                        <div class="content">
+                            <div class="icon-header">
+                                <div class="icon"><i class="fas fa-pen-nib"></i></div>
+                                <h3>Content & Writing</h3>
+                            </div>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Website content creation</li>
+                                <li><i class="fas fa-check"></i> Blog posts & Articles</li>
+                                <li><i class="fas fa-check"></i> Copywriting for marketing</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="service-card blue-border">
+                        <div class="content">
+                            <div class="icon-header">
+                                <div class="icon"><i class="fas fa-chart-line"></i></div>
+                                <h3>Creative Strategy</h3>
+                            </div>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Brand development strategy</li>
+                                <li><i class="fas fa-check"></i> Digital marketing consultation</li>
+                                <li><i class="fas fa-check"></i> Launch planning & execution</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a href="services.html" class="btn btn-primary view-more-btn">View All Services <i class="fas fa-arrow-right ml-2"></i></a>
+            </div>
+        </section>
+
+        <section id="projects-preview" class="projects-section">
+            <div class="container">
+                <h2 class="text-center mb-10">Featured Projects</h2>
+                <p class="text-center mb-12 text-lg max-w-2xl mx-auto">A glimpse into our diverse portfolio, showcasing successful collaborations and impactful designs.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="project-card">
+                        <img src="ecomerce.png" alt="Project Image 1">
+                        <div class="content">
+                            <div class="tags"><span>Shopify</span> <span>eCommerce</span></div>
+                            <h3>E-commerce Store Redesign</h3>
+                            <p>Transformed a sluggish online store into a high-converting e-commerce powerhouse.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Improved UI/UX</li>
+                                <li><i class="fas fa-check-circle"></i> Mobile Responsiveness</li>
+                                <li><i class="fas fa-check-circle"></i> Speed Optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="solvex.png" alt="Project Image 2">
+                        <div class="content">
+                            <div class="tags"><span>Branding</span> <span>Identity</span></div>
+                            <h3>Startup Brand Identity</h3>
+                            <p>Developed a comprehensive brand identity for a new tech startup, from logo to guidelines.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Logo & Visual System</li>
+                                <li><i class="fas fa-check-circle"></i> Brand Style Guide</li>
+                                <li><i class="fas fa-check-circle"></i> Marketing Collateral</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="amelia.png" alt="Project Image 3">
+                        <div class="content">
+                            <div class="tags"><span>Website</span> <span>Portfolio</span></div>
+                            <h3>Freelancer Portfolio Site</h3>
+                            <p>Designed and developed a sleek, modern portfolio website for a creative professional.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Custom Design</li>
+                                <li><i class="fas fa-check-circle"></i> Responsive Layout</li>
+                                <li><i class="fas fa-check-circle"></i> SEO Optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a href="portfolio.html" class="btn btn-secondary view-more-btn">View All Projects <i class="fas fa-arrow-right ml-2"></i></a>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials-section">
+            <div class="container">
+                <h2 class="text-center mb-10">Client Testimonials</h2>
+                <p class="text-center mb-12 text-lg max-w-2xl mx-auto">Hear directly from those who've experienced the VIO difference – their success stories are our greatest pride.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="testimonial-card">
+                        <p class="quote">"VIO transformed our outdated website into a modern, responsive platform that truly represents our brand. Their attention to detail and strategic insights were invaluable."</p>
+                        <div class="author-info">
+                            <div class="avatar">JS</div>
+                            <div>
+                                <div class="author-name">Jane Smith</div>
+                                <div class="author-location">CEO, Tech Innovations</div>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="quote">"Working with VIO on our brand identity was an absolute pleasure. They captured our vision perfectly and delivered a stunning, cohesive brand guide."</p>
+                        <div class="author-info">
+                            <div class="avatar">MK</div>
+                            <div>
+                                <div class="author-name">Michael K.</div>
+                                <div class="author-location">Founder, Green Startups</div>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="quote">"The content strategy VIO developed for us has significantly boosted our online engagement. Their understanding of our target audience was remarkable."</p>
+                        <div class="author-info">
+                            <div class="avatar">LR</div>
+                            <div>
+                                <div class="author-name">Lola R.</div>
+                                <div class="author-location">Marketing Director, EduConnect</div>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <p>Have a project in mind or just want to chat? We'd love to hear from you!</p>
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Our Location</strong>
+                                <p>Calabar, Cross River, Nigeria</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email Us</strong>
+                                <a href="mailto:ogaborvictorigb@mail.com">ogaborvictorigb@mail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Call Us</strong>
+                                <a href="tel:+2348146589595">+2348146589595</a>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="# https://web.facebook.com/victor.ogabor.5" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/IgbVictor" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href=" https://www.instagram.com/victor_igb_/ " aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="www.linkedin.com/in/victor-igb-ogabor-647173211" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form-wrapper">
+                        <h3>Send Us a Message</h3>
+                        <!-- Formspree integration: The action attribute now points to your specific Formspree endpoint -->
+                        <form id="contactForm" action="https://formspree.io/f/xvgqgpqd" method="POST">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <!-- Use name="_replyto" for Formspree to set the sender's email as the reply-to address -->
+                                <input type="email" id="email" name="_replyto" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <!-- Use name="_subject" for Formspree to set the email subject line -->
+                                <input type="text" id="subject" name="_subject" placeholder="Project Inquiry, General Question, etc." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Tell us about your project or query..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary submit-btn">
+                                <span class="btn-text">Send Message</span>
+                                <div class="loader"></div>
+                            </button>
+                            <!-- Formspree handles success/error messages via redirect, so the client-side message display is removed -->
+                            <p id="form-message" class="form-message"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="footer-col">
+                <h3>About VIO</h3>
+                <p>Crafting powerful ideas, designing memorable experiences, and delivering results that matter. Excellence with vibes.</p>
+                <div class="social-icons mt-4">
+                    <a href=" https://web.facebook.com/victor.ogabor.5" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/IgbVictor" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href=" https://www.instagram.com/victor_igb_/ " aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="www.linkedin.com/in/victor-igb-ogabor-647173211" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="services.html#branding-design">Branding & Design</a></li>
+                    <li><a href="services.html#website-shopify">Website & Shopify</a></li>
+                    <li><a href="services.html#content-writing">Content & Writing</a></li>
+                    <li><a href="services.html#creative-strategy">Creative Strategy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+                <p>Stay updated with our latest insights and projects.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; <span id="currentYear"></span> VIO. All rights reserved. Built with <i class="fas fa-heart text-red-500"></i> by VIO.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+            mobileMenuButton.querySelector('i').classList.toggle('fa-bars');
+            mobileMenuButton.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('open');
+                mobileMenuButton.querySelector('i').classList.remove('fa-times');
+                mobileMenuButton.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // The client-side form submission simulation has been removed
+        // as Formspree will handle the actual submission and redirection.
+        // You can add a 'submit' event listener if you want to show a loading
+        // indicator *before* the redirect, but Formspree handles the outcome.
+    </script>
+</body>
+</html>
