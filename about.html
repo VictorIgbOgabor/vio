@@ -47,16 +47,16 @@
 
         <section class="page-section bg-light-gray">
             <div class="container max-w-4xl">
-                <h2 class="section-heading">Who We Are</h2>
-                <p class="section-subheading">Founded by Victor Igb Ogabor, VIO is more than just a service provider; we are a partner dedicated to empowering individuals, startups, and institutions.</p>
+                <h2 class="section-heading animate-on-scroll">Who We Are</h2>
+                <p class="section-subheading animate-on-scroll">Founded by Victor Igbaji Ogabor, VIO is more than just a service provider; we are a partner dedicated to empowering individuals, startups, and institutions.</p>
 
-                <div class="content-block">
+                <div class="content-block animate-on-scroll">
                     <h2>Our Foundation</h2>
                     <p>At VIO, we believe that true impact comes from a blend of innovative thinking, strategic planning, and flawless execution. Our approach is holistic, ensuring that every project, whether it's a simple graphic design or a complex digital innovation, is built on a solid foundation of purpose and driven by a clear vision.</p>
                     <p>We pride ourselves on bringing **excellence with vibes** – a commitment to high-quality results delivered with a positive and collaborative spirit.</p>
                 </div>
 
-                <div class="content-block">
+                <div class="content-block animate-on-scroll">
                     <h2>What We Do</h2>
                     <p>Our core expertise spans four key areas, allowing us to offer comprehensive solutions:</p>
                     <ul>
@@ -71,43 +71,43 @@
 
         <section class="page-section about-values">
             <div class="container">
-                <h2 class="section-heading">Our Mission & Vision</h2>
-                <p class="section-subheading">Guided by strong principles, we aim to redefine creative and strategic partnerships.</p>
+                <h2 class="section-heading animate-on-scroll">Our Mission & Vision</h2>
+                <p class="section-subheading animate-on-scroll">Guided by strong principles, we aim to redefine creative and strategic partnerships.</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                    <div class="content-block">
+                    <div class="content-block animate-on-scroll">
                         <h3 class="text-center">Our Mission 📦</h3>
                         <p class="text-center">To empower individuals, startups, and institutions with visually-striking, strategically sound, and technologically driven solutions that make a mark.</p>
                     </div>
-                    <div class="content-block">
+                    <div class="content-block animate-on-scroll">
                         <h3 class="text-center">Our Vision 📈</h3>
                         <p class="text-center">To be the go-to creative powerhouse and startup support brand across African universities and digital platforms by 2030 — leading the new wave of faith-driven, tech-savvy, brand-smart entrepreneurs.</p>
                     </div>
                 </div>
 
-                <h2 class="section-heading mt-12">Our Core Values</h2>
-                <p class="section-subheading">These principles are the bedrock of everything we do at VIO.</p>
+                <h2 class="section-heading mt-12 animate-on-scroll">Our Core Values</h2>
+                <p class="section-subheading animate-on-scroll">These principles are the bedrock of everything we do at VIO.</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="value-item">
+                    <div class="value-item animate-on-scroll">
                         <i class="fas fa-cross"></i> <h3>Christocentric Foundation</h3>
                         <p>God first in all we do. Our work is guided by faith and integrity.</p>
                     </div>
-                    <div class="value-item">
+                    <div class="value-item animate-on-scroll">
                         <i class="fas fa-medal"></i>
                         <h3>Excellence</h3>
                         <p>Every pixel, every post, every project reflects our commitment to superior quality.</p>
                     </div>
-                    <div class="value-item">
+                    <div class="value-item animate-on-scroll">
                         <i class="fas fa-handshake"></i>
                         <h3>Authenticity</h3>
                         <p>No hype, just real impact. We deliver genuine solutions that bring tangible results.</p>
                     </div>
-                    <div class="value-item">
+                    <div class="value-item animate-on-scroll">
                         <i class="fas fa-sync-alt"></i>
                         <h3>Innovation</h3>
                         <p>Build, break, rebuild. We constantly seek better ways to create and improve, evolving with technology.</p>
                     </div>
-                    <div class="value-item">
+                    <div class="value-item animate-on-scroll">
                         <i class="fas fa-chart-line"></i>
                         <h3>Growth</h3>
                         <p>We are committed to continuous personal, spiritual, and professional growth for ourselves and our clients.</p>
@@ -162,6 +162,10 @@
         </div>
     </footer>
 
+    <button id="backToTopBtn" class="back-to-top-btn" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
         // Smooth scrolling for anchor links (if any internal to this page)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -202,6 +206,76 @@
 
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // --- NEW UX ENHANCEMENTS BELOW ---
+
+        // Hero Section Entrance Animation (for about-hero)
+        document.addEventListener('DOMContentLoaded', () => {
+            const aboutHero = document.querySelector('.about-hero');
+            if (aboutHero) {
+                // Animate h1, p, and button in about-hero
+                const elementsToAnimate = aboutHero.querySelectorAll('h1, p, .btn');
+                elementsToAnimate.forEach((el, index) => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(20px)';
+                    el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                    el.style.transitionDelay = `${0.2 + index * 0.2}s`;
+                });
+
+                setTimeout(() => {
+                    elementsToAnimate.forEach(el => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    });
+                }, 100);
+            }
+        });
+
+        // Scroll-triggered Animations
+        const observerOptions = {
+            root: null, // Use the viewport as the root
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of the item is visible
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        };
+
+        const scrollObserver = new IntersectionObserver(observerCallback, observerOptions);
+
+        // Apply to all elements with 'animate-on-scroll' class
+        document.querySelectorAll('.animate-on-scroll').forEach((element, index) => {
+            // Add a staggered delay for grid items
+            const parentGrid = element.closest('.grid');
+            if (parentGrid) {
+                element.style.setProperty('--delay', `${index * 0.1}s`); // 0.1s delay per item
+            }
+            scrollObserver.observe(element);
+        });
+
+        // Back to Top Button functionality
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Show button after scrolling 300px
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scroll to top
+            });
+        });
     </script>
 </body>
 </html>

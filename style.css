@@ -59,6 +59,11 @@ h3 { font-size: 1.8rem; }
     h3 { font-size: 1.3rem; }
     .hero-section h1 {
         font-size: 2.5rem; /* Further adjustment for hero H1 */
+        padding: 0 5px; /* Add slight horizontal padding to prevent cut-off */
+        word-break: break-word; /* Allow long words to break */
+    }
+    .hero-section p { /* Smaller paragraph text in hero */
+        font-size: 1rem;
     }
     .section-heading { /* For general section titles */
         font-size: 2rem;
@@ -286,6 +291,41 @@ header .nav-link.active {
     50% { transform: translateY(-15px); }
 }
 
+/* Hero Section Entrance Animation */
+.hero-section h1,
+.hero-section p,
+.hero-section .btn {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    /* Delay individual elements for a staggered effect */
+}
+
+.hero-section h1 {
+    transition-delay: 0.2s;
+}
+
+.hero-section p {
+    transition-delay: 0.4s;
+}
+
+.hero-section .flex .btn:nth-child(1) { /* First button */
+    transition-delay: 0.6s;
+}
+
+.hero-section .flex .btn:nth-child(2) { /* Second button */
+    transition-delay: 0.8s;
+}
+
+/* Class to trigger the animation */
+.hero-section.animate-in h1,
+.hero-section.animate-in p,
+.hero-section.animate-in .btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 /* Responsive Hero Section */
 @media (max-width: 768px) {
     .hero-section {
@@ -315,6 +355,10 @@ header .nav-link.active {
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Added for glow effect */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 .feature-card:hover {
     transform: translateY(-10px);
@@ -379,6 +423,9 @@ header .nav-link.active {
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-top: 5px solid transparent; /* Placeholder for color */
+    /* Added for glow effect */
+    position: relative;
+    z-index: 1;
 }
 .service-card:hover {
     transform: translateY(-10px);
@@ -472,6 +519,9 @@ header .nav-link.active {
     overflow: hidden;
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Added for glow effect */
+    position: relative;
+    z-index: 1;
 }
 .project-card:hover {
     transform: translateY(-10px);
@@ -563,6 +613,10 @@ header .nav-link.active {
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Added for glow effect */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 .testimonial-card:hover {
     transform: translateY(-10px);
@@ -1047,6 +1101,10 @@ footer .social-icons a:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     text-align: center;
     transition: transform 0.3s ease;
+    /* Added for glow effect */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 .about-values .value-item:hover {
     transform: translateY(-5px);
@@ -1116,6 +1174,10 @@ footer .social-icons a:hover {
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     transition: transform 0.2s ease;
+    /* Added for glow effect */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 .service-category .service-item:hover {
     transform: translateY(-5px);
@@ -1210,6 +1272,9 @@ footer .social-icons a:hover {
     overflow: hidden;
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Added for glow effect */
+    position: relative;
+    z-index: 1;
 }
 .blog-post-card:hover {
     transform: translateY(-10px);
@@ -1385,4 +1450,96 @@ footer .social-icons a:hover {
     .content-block ul li i { /* Adjust icon alignment */
         margin-top: 2px;
     }
+}
+
+/* Common styles for glow effect on hover */
+.feature-card::before,
+.service-card::before,
+.project-card::before,
+.testimonial-card::before,
+.about-values .value-item::before,
+.service-category .service-item::before,
+.blog-post-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, var(--vio-light-blue) 0%, rgba(255,255,255,0) 70%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+    z-index: -1; /* Place behind content */
+}
+
+.feature-card:hover::before,
+.service-card:hover::before,
+.project-card:hover::before,
+.testimonial-card:hover::before,
+.about-values .value-item:hover::before,
+.service-category .service-item:hover::before,
+.blog-post-card:hover::before {
+    width: 200%; /* Make it large enough to cover the card */
+    height: 200%;
+    opacity: 0.5; /* Subtle glow */
+}
+
+/* Scroll-triggered Animation */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* For staggering effect within grids */
+.features-section .feature-card.animate-on-scroll,
+.services-section .service-card.animate-on-scroll,
+.projects-section .project-card.animate-on-scroll,
+.testimonials-section .testimonial-card.animate-on-scroll,
+.about-values .value-item.animate-on-scroll,
+.service-category .service-item.animate-on-scroll,
+.blog-post-card.animate-on-scroll {
+    transition-delay: var(--delay); /* Will be set by JS */
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Back to Top Button */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: var(--vio-orange);
+    color: var(--text-light);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Hidden from screen readers when not visible */
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 900; /* Below header, above other content */
+}
+
+.back-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+    background-color: #e5461e; /* Darker orange on hover */
+    transform: translateY(-5px); /* Lift slightly on hover */
 }

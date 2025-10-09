@@ -46,9 +46,9 @@
 
         <section class="page-section bg-light-gray">
             <div class="container">
-                <h2 class="section-heading mb-10">Featured Projects & Case Studies</h2>
+                <h2 class="section-heading mb-10 animate-on-scroll">Featured Projects & Case Studies</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 portfolio-grid">
-                    <div class="project-card">
+                    <div class="project-card animate-on-scroll">
                         <img src="unimart.png" alt="Unimart Project Image">
                         <div class="content">
                             <div class="tags"><span>eCommerce</span> <span>Development</span> <span>UI/UX</span></div>
@@ -63,7 +63,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card">
+                    <div class="project-card animate-on-scroll">
                         <img src="greenway.png" alt="Greenway Project Image">
                         <div class="content">
                             <div class="tags"><span>Branding</span> <span>Web Design</span> <span>Concept</span></div>
@@ -78,7 +78,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card">
+                    <div class="project-card animate-on-scroll">
                         <img src="vio.png" alt="VIO Website Project Image">
                         <div class="content">
                             <div class="tags"><span>Web Development</span> <span>Portfolio</span> <span>Branding</span></div>
@@ -93,7 +93,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card">
+                    <div class="project-card animate-on-scroll">
                         <img src="vipay.png" alt="Viopay Project Image">
                         <div class="content">
                             <div class="tags"><span>Fintech</span> <span>UI/UX</span> <span>Concept</span></div>
@@ -108,7 +108,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card">
+                    <div class="project-card animate-on-scroll">
                         <img src="redesign.png" alt="Marketing Collateral Project Image">
                         <div class="content">
                             <div class="tags"><span>Graphic Design</span> <span>Marketing</span> <span>Print</span></div>
@@ -123,7 +123,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card">
+                    <div class="project-card animate-on-scroll">
                         <img src="valentine package.png" alt="Social Media Content Project Image">
                         <div class="content">
                             <div class="tags"><span>Content</span> <span>Social Media</span> <span>Strategy</span></div>
@@ -193,6 +193,10 @@
         </div>
     </footer>
 
+    <button id="backToTopBtn" class="back-to-top-btn" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
         // Smooth scrolling for anchor links (if any internal to this page)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -233,6 +237,54 @@
 
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // --- NEW UX ENHANCEMENTS BELOW ---
+
+        // Scroll-triggered Animations
+        const observerOptions = {
+            root: null, // Use the viewport as the root
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of the item is visible
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        };
+
+        const scrollObserver = new IntersectionObserver(observerCallback, observerOptions);
+
+        // Apply to all elements with 'animate-on-scroll' class
+        document.querySelectorAll('.animate-on-scroll').forEach((element, index) => {
+            // Add a staggered delay for grid items
+            const parentGrid = element.closest('.grid');
+            if (parentGrid) {
+                element.style.setProperty('--delay', `${index * 0.1}s`); // 0.1s delay per item
+            }
+            scrollObserver.observe(element);
+        });
+
+        // Back to Top Button functionality
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Show button after scrolling 300px
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scroll to top
+            });
+        });
     </script>
 </body>
 </html>
